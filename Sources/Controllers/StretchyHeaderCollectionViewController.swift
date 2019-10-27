@@ -9,12 +9,25 @@
 import UIKit
 
 class StretchyHeaderCollectionViewController: UICollectionViewController {
-    fileprivate let cellIdentifier = "Cell"
-    fileprivate let headerIdentifier = "Header"
+    fileprivate let cellIdentifier: String = "Cell"
+    fileprivate let headerIdentifier: String = "Header"
+    fileprivate let padding: CGFloat = 16.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLayout()
+        setupSettings()
+    }
+    
+    fileprivate func setupLayout() {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
+        layout.minimumLineSpacing = padding
+    }
+    
+    fileprivate func setupSettings() {
         collectionView.backgroundColor = .white
         collectionView.register(StretchyHeaderCollectionReusableHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         collectionView.register(StretchyHeaderCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -43,6 +56,6 @@ extension StretchyHeaderCollectionViewController: UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 48.0)
+        return .init(width: collectionView.frame.width - (2 * padding), height: 48.0)
     }
 }

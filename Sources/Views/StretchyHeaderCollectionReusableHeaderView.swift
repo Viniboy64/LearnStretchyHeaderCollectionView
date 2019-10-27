@@ -9,10 +9,24 @@
 import UIKit
 
 class StretchyHeaderCollectionReusableHeaderView: UICollectionReusableView {
+    private let headerImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "stretchy-header")
+        imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .red
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        addSubview(headerImageView)
+        
+        headerImageView.fillSuperview()
     }
     
     required init?(coder: NSCoder) {

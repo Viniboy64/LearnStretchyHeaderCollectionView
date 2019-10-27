@@ -27,6 +27,33 @@ extension UIView {
     }
     
     @discardableResult
+    public func fillSuperview(
+        padding: UIEdgeInsets = .zero
+    ) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        let anchoredConstraints = AnchoredConstraints()
+        
+        guard
+            let superviewTopAnchor = superview?.topAnchor,
+            let superviewLeadingAnchor = superview?.leadingAnchor,
+            let superviewBottomAnchor = superview?.bottomAnchor,
+            let superviewTrailingAnchor = superview?.trailingAnchor
+        else {
+            return anchoredConstraints
+        }
+        
+        return anchor(
+            top: superviewTopAnchor,
+            leading: superviewLeadingAnchor,
+            bottom: superviewBottomAnchor,
+            trailing: superviewTrailingAnchor,
+            padding: padding
+        )
+        
+    }
+    
+    @discardableResult
     public func anchor(
         top: NSLayoutYAxisAnchor? = nil,
         leading: NSLayoutXAxisAnchor? = nil,
