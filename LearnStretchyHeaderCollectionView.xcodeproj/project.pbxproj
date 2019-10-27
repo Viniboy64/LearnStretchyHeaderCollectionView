@@ -14,6 +14,7 @@
 		4CFDE8532365F52E009E2342 /* StretchyHeaderCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE8522365F52E009E2342 /* StretchyHeaderCollectionViewController.swift */; };
 		4CFDE8552365FDBB009E2342 /* StretchyHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE8542365FDBB009E2342 /* StretchyHeaderCollectionViewCell.swift */; };
 		4CFDE8572365FF59009E2342 /* StretchyHeaderCollectionReusableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE8562365FF59009E2342 /* StretchyHeaderCollectionReusableHeaderView.swift */; };
+		4CFDE85923664993009E2342 /* StretchyHeaderCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFDE85823664993009E2342 /* StretchyHeaderCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4CFDE8522365F52E009E2342 /* StretchyHeaderCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderCollectionViewController.swift; sourceTree = "<group>"; };
 		4CFDE8542365FDBB009E2342 /* StretchyHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CFDE8562365FF59009E2342 /* StretchyHeaderCollectionReusableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderCollectionReusableHeaderView.swift; sourceTree = "<group>"; };
+		4CFDE85823664993009E2342 /* StretchyHeaderCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				4CFDE8562365FF59009E2342 /* StretchyHeaderCollectionReusableHeaderView.swift */,
 				4CFDE8542365FDBB009E2342 /* StretchyHeaderCollectionViewCell.swift */,
+				4CFDE85823664993009E2342 /* StretchyHeaderCollectionViewFlowLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				4CFDE8532365F52E009E2342 /* StretchyHeaderCollectionViewController.swift in Sources */,
 				4CFDE850236500C6009E2342 /* UIView.swift in Sources */,
 				4CFDE83223633525009E2342 /* AppDelegate.swift in Sources */,
+				4CFDE85923664993009E2342 /* StretchyHeaderCollectionViewFlowLayout.swift in Sources */,
 				4CFDE8552365FDBB009E2342 /* StretchyHeaderCollectionViewCell.swift in Sources */,
 				4CFDE8572365FF59009E2342 /* StretchyHeaderCollectionReusableHeaderView.swift in Sources */,
 			);

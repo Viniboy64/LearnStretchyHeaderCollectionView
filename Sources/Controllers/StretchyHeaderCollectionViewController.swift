@@ -9,6 +9,10 @@
 import UIKit
 
 class StretchyHeaderCollectionViewController: UICollectionViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     fileprivate let cellIdentifier: String = "Cell"
     fileprivate let headerIdentifier: String = "Header"
     fileprivate let padding: CGFloat = 16.0
@@ -29,6 +33,8 @@ class StretchyHeaderCollectionViewController: UICollectionViewController {
     
     fileprivate func setupSettings() {
         collectionView.backgroundColor = .white
+        collectionView.contentInsetAdjustmentBehavior = .never
+        
         collectionView.register(StretchyHeaderCollectionReusableHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         collectionView.register(StretchyHeaderCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
