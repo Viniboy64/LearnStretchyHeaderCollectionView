@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let layout = UICollectionViewFlowLayout()
         let controller = StretchyHeaderCollectionViewController(collectionViewLayout: layout)
-        let navigationController = UINavigationController(rootViewController: controller)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = navigationController
+        window?.rootViewController = controller
         
         return true
     }
