@@ -74,4 +74,112 @@ extension UIView {
         
         return anchoredConstraints
     }
+    
+    @discardableResult
+    public func constraintWidth(_ constant: CGFloat) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraint = AnchoredConstraints()
+        anchoredConstraint.width = self.widthAnchor.constraint(equalToConstant: constant)
+        anchoredConstraint.width?.isActive = true
+        
+        return anchoredConstraint
+    }
+    
+    @discardableResult
+    public func constraintWidth(_ dimension: NSLayoutDimension) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraint = AnchoredConstraints()
+        anchoredConstraint.width = self.widthAnchor.constraint(equalTo: dimension)
+        anchoredConstraint.width?.isActive = true
+        
+        return anchoredConstraint
+    }
+    
+    @discardableResult
+    public func constraintHeight(_ constant: CGFloat) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraint = AnchoredConstraints()
+        anchoredConstraint.width = self.widthAnchor.constraint(equalToConstant: constant)
+        anchoredConstraint.width?.isActive = true
+        
+        return anchoredConstraint
+    }
+    
+    @discardableResult
+    public func constraintHeight(_ dimension: NSLayoutDimension) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraint = AnchoredConstraints()
+        anchoredConstraint.height = self.heightAnchor.constraint(equalTo: dimension)
+        anchoredConstraint.height?.isActive = true
+        
+        return anchoredConstraint
+    }
+    
+    @discardableResult
+    public func centeredAnchor(
+        centerX: NSLayoutXAxisAnchor?,
+        centerY: NSLayoutYAxisAnchor?,
+        width: CGFloat,
+        height: CGFloat
+    ) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+        
+        if let centerXAnchor = centerX {
+            anchoredConstraints.centerX = self.centerXAnchor.constraint(equalTo: centerXAnchor)
+        }
+        
+        if let centerYAnchor = centerY {
+            anchoredConstraints.centerY = self.centerYAnchor.constraint(equalTo: centerYAnchor)
+        }
+        
+        anchoredConstraints.width = self.widthAnchor.constraint(equalToConstant: width)
+        anchoredConstraints.height = self.heightAnchor.constraint(equalToConstant: height)
+        
+        [
+            anchoredConstraints.centerX,
+            anchoredConstraints.centerY,
+            anchoredConstraints.width,
+            anchoredConstraints.height
+        ].forEach { $0?.isActive = true }
+        
+        return anchoredConstraints
+    }
+    
+    @discardableResult
+    public func centeredAnchor(
+        centerX: NSLayoutXAxisAnchor?,
+        centerY: NSLayoutYAxisAnchor?,
+        width: NSLayoutDimension,
+        height: NSLayoutDimension
+    ) -> AnchoredConstraints {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        var anchoredConstraints = AnchoredConstraints()
+        
+        if let centerXAnchor = centerX {
+            anchoredConstraints.centerX = self.centerXAnchor.constraint(equalTo: centerXAnchor)
+        }
+        
+        if let centerYAnchor = centerY {
+            anchoredConstraints.centerY = self.centerYAnchor.constraint(equalTo: centerYAnchor)
+        }
+        
+        anchoredConstraints.width = self.widthAnchor.constraint(equalTo: width)
+        anchoredConstraints.height = self.heightAnchor.constraint(equalTo: height)
+        
+        [
+            anchoredConstraints.centerX,
+            anchoredConstraints.centerY,
+            anchoredConstraints.width,
+            anchoredConstraints.height
+        ].forEach { $0?.isActive = true }
+        
+        return anchoredConstraints
+    }
 }
