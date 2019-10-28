@@ -9,6 +9,8 @@
 import UIKit
 
 class StretchyHeaderCollectionReusableHeaderView: UICollectionReusableView {
+    public var propertyAnimator: UIViewPropertyAnimator?
+    
     private let headerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "stretchy-header")
@@ -21,12 +23,24 @@ class StretchyHeaderCollectionReusableHeaderView: UICollectionReusableView {
         super.init(frame: frame)
         
         setupLayout()
+        setupBlurEffect()
     }
     
     private func setupLayout() {
         addSubview(headerImageView)
         
         headerImageView.fillSuperview()
+    }
+    
+    private func setupBlurEffect() {
+        propertyAnimator = UIViewPropertyAnimator(duration: 0.0, curve: .linear, animations: {
+            let visualEffectView = UIVisualEffectView()
+            visualEffectView.effect = UIBlurEffect(style: .dark)
+            
+            self.addSubview(visualEffectView)
+            
+            visualEffectView.fillSuperview()
+        })
     }
     
     required init?(coder: NSCoder) {

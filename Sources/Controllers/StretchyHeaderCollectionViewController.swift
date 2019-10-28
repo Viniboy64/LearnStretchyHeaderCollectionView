@@ -13,6 +13,8 @@ class StretchyHeaderCollectionViewController: UICollectionViewController {
         return .lightContent
     }
     
+    fileprivate var header: StretchyHeaderCollectionReusableHeaderView?
+    
     fileprivate let cellIdentifier: String = "Cell"
     fileprivate let headerIdentifier: String = "Header"
     fileprivate let padding: CGFloat = 16.0
@@ -38,6 +40,18 @@ class StretchyHeaderCollectionViewController: UICollectionViewController {
         collectionView.register(StretchyHeaderCollectionReusableHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         collectionView.register(StretchyHeaderCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        
+        if contentOffsetY > 0 {
+            header?.propertyAnimator?.fractionComplete = 0
+            
+            return
+        }
+        
+        header?.propertyAnimator?.fractionComplete = abs(contentOffsetY) / 100
+    }
 }
 
 extension StretchyHeaderCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -46,9 +60,9 @@ extension StretchyHeaderCollectionViewController: UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as? StretchyHeaderCollectionReusableHeaderView else { return UICollectionReusableView() }
+        header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as? StretchyHeaderCollectionReusableHeaderView
         
-        return header
+        return header!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
