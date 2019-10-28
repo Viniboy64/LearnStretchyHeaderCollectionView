@@ -45,7 +45,7 @@ class StretchyHeaderCollectionViewController: UICollectionViewController {
         let contentOffsetY = scrollView.contentOffset.y
         
         if contentOffsetY > 0 {
-            header?.propertyAnimator?.fractionComplete = 0
+            header?.propertyAnimator?.fractionComplete = 0.0
             
             return
         }
@@ -66,7 +66,7 @@ extension StretchyHeaderCollectionViewController: UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: collectionView.frame.width, height: 296.0)
+        return .init(width: collectionView.frame.width, height: 320.0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

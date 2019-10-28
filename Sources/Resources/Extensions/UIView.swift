@@ -20,7 +20,7 @@ extension UIView {
         var height: NSLayoutConstraint?
     }
     
-    public func addSubview(_ views: [UIView]) {
+    public func addSubviews(_ views: [UIView]) {
         views.forEach { (view) in
             self.addSubview(view)
         }
